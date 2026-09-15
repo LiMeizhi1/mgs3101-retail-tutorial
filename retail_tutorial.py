@@ -2,7 +2,7 @@ import pandas as pd
 
 pd.set_option('display.max_columns', 12)
 pd.set_option('display.width', 1000)
-pd.set_option('display.float_format', lambda value: f'{value:,.2f}').__annotations__
+pd.set_option('display.float_format', lambda value: f'{value:,.2f}')
 
 def demo_pandas_fundamentals():
     print("\n" + "=" * 70)
@@ -39,7 +39,7 @@ def demo_pandas_fundamentals():
     print("\nB2B orders worth $500 or more:")
     print(large_b2b_orders)
 
-    def load_and_inspect_data():
+def load_and_inspect_data():
     print("\n" + "=" * 70)
     print("STEP 3: LOAD AND INSPECT RETAIL DATA")
     print("=" * 70)
@@ -139,3 +139,15 @@ def make_recommendations(df_clean, df_cancelled):
         "future reports so zero-price or negative transactions "
         "do not distort revenue."
     )
+
+
+def main():
+    print("MGS 3101 RETAIL PANDAS TUTORIAL")
+    demo_pandas_fundamentals()
+    df_2009, df_2010 = load_and_inspect_data()
+    df_clean, df_cancelled = clean_and_prepare_data(df_2009, df_2010)
+    make_recommendations(df_clean, df_cancelled)
+
+
+if __name__ == '__main__':
+    main()
